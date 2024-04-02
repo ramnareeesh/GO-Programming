@@ -14,8 +14,3 @@ func say(msg string) {
 	}
 }
 
-func main() {
-	// go say("hello")
-	say("hello")
-	say("world")
-}

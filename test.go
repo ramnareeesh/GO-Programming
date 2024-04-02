@@ -10,5 +10,3 @@ func main() {
 	fmt.Println(s)
 	fmt.Println(len(s), cap(s))
 }
-
-fmt.Println("Hello")
