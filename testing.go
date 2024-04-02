@@ -32,11 +32,13 @@ type authenticationInfo struct {
 	password string
 }
 
-func getBasicAuth(a authenticationInfo) string { // this is just another fn with struct as input
+func getBasicAuth(a authenticationInfo) string {
+	// this is just another fn with struct as input
 	return a.username + ":" + a.password
 }
 
-func (a authenticationInfo) getBasicAuth() string { // this is a method of the struct
+func (a authenticationInfo) getBasicAuth() string {
+	// this is a method of the struct
 	return a.username + ":" + a.password
 }
 
@@ -50,6 +52,16 @@ func getMonthlyPrice(tier string) int {
 		return 500
 	}
 	return 0
+}
+
+func bulkSend(numMessages int) float64 {
+	totalCost := 0.0
+
+	for i := 1; i <= numMessages; i++ {
+		totalCost += 1.0 + float64(i-1)/100.0
+	}
+
+	return totalCost
 }
 
 // main function
@@ -76,4 +88,6 @@ func main() {
 
 	fmt.Printf("Authorization basic: %s\n", getBasicAuth(auth))
 	fmt.Printf("Authorization basic: %s\n", auth.getBasicAuth())
+
+	fmt.Printf("Total Cost: %.2f\n", bulkSend(10));
 }
