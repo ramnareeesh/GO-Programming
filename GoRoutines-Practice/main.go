@@ -3,12 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	c := make(chan int, 5)
 
-	go fib_buff(c)
+	c_engine := make(chan int)
+	c_body := make(chan int)
+	c_paint := make(chan int)
 
-	for i := range c {
-		fmt.Print(i, ",")
-	}
+	go engine_Work(c_engine)
+	<-c_engine
 
+	go body_Work(c_body)
+	<-c_body
+
+	go paint_Work(c_paint)
+	<-c_paint
+
+	fmt.Println("All Jobs Done!")
 }
