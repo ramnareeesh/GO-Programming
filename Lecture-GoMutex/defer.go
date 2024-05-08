@@ -16,7 +16,7 @@ func show() {
 
 func main() {
 
-	mul(23, 45)
+	defer mul(23, 45)
 	defer mul(23, 56) // as it is defer, it will be executed at the end
 	show()
 }
